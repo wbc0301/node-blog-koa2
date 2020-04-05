@@ -9,19 +9,19 @@ con.connect()
 
 // 统一执行 sql 的函数
 function exec(sql) {
-    const promise = new Promise((resolve, reject) => {
-        con.query(sql, (err, result) => {
-            if (err) {
-                reject(err)
-                return
-            }
-            resolve(result)
-        })
+  const promise = new Promise((resolve, reject) => {
+    con.query(sql, (err, result) => {
+      if (err) {
+        reject(err)
+        return
+      }
+      resolve(result)
     })
-    return promise
+  })
+  return promise
 }
 
 module.exports = {
-    exec,
-    escape: mysql.escape
+  exec,
+  escape: mysql.escape
 }
